@@ -1,5 +1,7 @@
 package com.example.demo.SalesProducts.domain.services;
 
+import java.util.List;
+
 import com.example.demo.SalesProducts.api.SalesDto;
 import com.example.demo.SalesProducts.domain.models.Products;
 
@@ -14,4 +16,6 @@ public interface SalesService {
 	
 	boolean validate(Products product);
 	boolean validateIva(SalesDto salesDto);
+	void addProduct(Products product);
+	List<Products> findAll();
 }

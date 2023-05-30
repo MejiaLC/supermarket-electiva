@@ -1,11 +1,15 @@
 package com.example.demo.SalesProducts.domain.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.SalesProducts.api.SalesDto;
 import com.example.demo.SalesProducts.domain.models.Products;
 import com.example.demo.SalesProducts.domain.repository.ProductsRepository;
 
+@Service
 public class SalesServiceImpl implements SalesService {
 
 	@Autowired
@@ -47,6 +51,17 @@ public class SalesServiceImpl implements SalesService {
 		
 		
 		return false;
+	}
+
+	@Override
+	public void addProduct(Products product) {
+		productsRepository.save(product);
+	}
+
+	@Override
+	public List<Products> findAll() {
+		List<Products> products = (List<Products>) productsRepository.findAll();
+		return products;
 	}
 	
 }
